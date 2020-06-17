@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>DemoChannel</masterLabel>
+    <isExposed>true</isExposed>
+    <description>No description</description>
+    <lightningMessageFields>
+        <fieldName>recordId</fieldName>
+        <description></description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>messageText</fieldName>
+        <description></description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>dateTimeGenerated</fieldName>
+        <description>Use as a DateTime</description>
+    </lightningMessageFields>
+</LightningMessageChannel>

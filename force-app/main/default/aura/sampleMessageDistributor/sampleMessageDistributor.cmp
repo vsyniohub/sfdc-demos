@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <lightning:button onclick="{!c.handlePublish}"/>
+    <lightning:messageChannel type="DemoChannel__c" aura:id="messageChannelComponent">
+    </lightning:messageChannel>
+</aura:component>
