@@ -4,9 +4,10 @@
     <script src="https://vsy-demo-dev-ed.my.salesforce.com/soap/ajax/48.0/connection.js" type="text/javascript"/>
     <script src="https://vsy-demo-dev-ed.my.salesforce.com/soap/ajax/48.0/apex.js" type="text/javascript"/>
    
+    <!--
     <apex:includeScript value="https://vsy-demo-dev-ed.my.salesforce.com/sforce/one/48.0/api.js"></apex:includeScript>
     <apex:includeScript value="https://vsy-demo-dev-ed.my.salesforce.com/soap/ajax/48.0/connection.js"></apex:includeScript>
-    <apex:includeScript value="https://vsy-demo-dev-ed.my.salesforce.com/soap/ajax/48.0/apex.js"></apex:includeScript>
+    <apex:includeScript value="https://vsy-demo-dev-ed.my.salesforce.com/soap/ajax/48.0/apex.js"></apex:includeScript>-->
     
     <apex:includeLightning />
     <apex:slds />
@@ -19,21 +20,18 @@
             <div class="slds-col">
                 <p>Output:</p>
                 <textarea id="outputText" rows="2" style="readonly:true;disabled:true;width:100%;"/>
-                <!--<apex:inputTextarea label="Output:" disabled="true" id="outputPannel" /><p/>-->
             </div>
         </div>
         <div class="slds-grid">
             <div class="slds-col">
                 <p>Name:</p>
                 <input id="name" value="Visualforce" />
-                <!--<apex:input label="Name:" id="componentName" /><p/>-->
             </div>
         </div>
         <div class="slds-grid">
             <div class="slds-col">
                 <p>Enter message:</p>
                 <textarea id="messageTextArea" rows="2" style="disabled:false;resize:none;width:100%;"/>
-                <!--<apex:inputTextarea label="Enter message:" id="messageTextBox" /><p/>-->
             </div>
         </div>
         <button onclick="publishMessage()">Publish</button>
@@ -55,7 +53,6 @@
         function onMessage(message) {
             console.log(message);
             var textArea = document.querySelector("#outputText");
-            //textArea.innerHTML = message ? JSON.stringify(message, null, '\t') : 'No content';
             textArea.innerHTML = textArea.innerHTML + message.nameSent + ': ' + message.messageText + '\n';
         }
         var subscription = sforce.one.subscribe(channel, onMessage, {scope : "APPLICATION"});
