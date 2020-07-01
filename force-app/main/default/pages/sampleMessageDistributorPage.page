@@ -1,0 +1,60 @@
+<apex:page lightningStylesheets="true" docType="html-5.0">
+    
+    <script src="https://vsy-demo-dev-ed.my.salesforce.com/sforce/one/48.0/api.js" type="text/javascript"/>
+    <script src="https://vsy-demo-dev-ed.my.salesforce.com/soap/ajax/48.0/connection.js" type="text/javascript"/>
+    <script src="https://vsy-demo-dev-ed.my.salesforce.com/soap/ajax/48.0/apex.js" type="text/javascript"/>
+   
+    <!--
+    <apex:includeScript value="https://vsy-demo-dev-ed.my.salesforce.com/sforce/one/48.0/api.js"></apex:includeScript>
+    <apex:includeScript value="https://vsy-demo-dev-ed.my.salesforce.com/soap/ajax/48.0/connection.js"></apex:includeScript>
+    <apex:includeScript value="https://vsy-demo-dev-ed.my.salesforce.com/soap/ajax/48.0/apex.js"></apex:includeScript>-->
+    
+    <apex:includeLightning />
+    <apex:slds />
+
+    <div class="slds-box slds-theme_default">
+        <div class="slds-text-title_caps">
+            Visualforce Page
+        </div>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <p>Output:</p>
+                <textarea id="outputText" rows="2" style="readonly:true;disabled:true;width:100%;"/>
+            </div>
+        </div>
+        <div class="slds-grid">
+            <div class="slds-col">
+                <p>Name:</p>
+                <input id="name" value="Visualforce" />
+            </div>
+        </div>
+        <div class="slds-grid">
+            <div class="slds-col">
+                <p>Enter message:</p>
+                <textarea id="messageTextArea" rows="2" style="disabled:false;resize:none;width:100%;"/>
+            </div>
+        </div>
+        <button onclick="publishMessage()">Publish</button>
+    </div>
+
+    <script>
+        var channel = "{!$MessageChannel.DemoChannel__c}";
+        //var subscription;
+        
+        function publishMessage() {
+            const message = {
+                recordId:           "ABC0000X1",
+                nameSent:           document.getElementById("name").value,
+                messageText:        document.getElementById("messageTextArea").value,
+                dateTimeGenerated : Date.now()
+        	};
+            sforce.one.publish(channel, message);
+        }
+        function onMessage(message) {
+            console.log(message);
+            var textArea = document.querySelector("#outputText");
+            textArea.innerHTML = textArea.innerHTML + message.nameSent + ': ' + message.messageText + '\n';
+        }
+        var subscription = sforce.one.subscribe(channel, onMessage, {scope : "APPLICATION"});
+    </script>
+</apex:page>

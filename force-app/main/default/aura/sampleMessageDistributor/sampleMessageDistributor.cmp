@@ -1,0 +1,51 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <!--
+        Attributes
+    -->
+    <aura:attribute name="connectedChannel" type="String" default="DemoChannel__c"/>
+    <aura:attribute name="messageThread" type="String" default=""/>
+    <aura:attribute name="name" type="String" default="Aura Component"/>
+    <!--
+    -->
+
+    <lightning:messageChannel 
+        type="DemoChannel__c" 
+        onMessage="{!c.onMessage}"
+        scope="APPLICATION"
+        aura:id="messageChannelComponent"/>
+
+    <div class="slds-box slds-theme_default">
+        <div class="slds-text-title_caps">
+            AURA Component
+        </div>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <lightning:textarea 
+                    disabled="true"
+                    value="{!v.messageThread}" 
+                    name="outputPannel" 
+                    aura:id="outputPannel" 
+                    label="Output:" />
+            </div>
+        </div>
+        <div class="slds-grid">
+            <div class="slds-col">
+                <lightning:input 
+                    value="{!v.name}" 
+                    name="componentName" 
+                    aura:id="messageComponentName" 
+                    label="Name:" />
+            </div>
+        </div>
+        <div class="slds-grid">
+            <div class="slds-col">
+                <lightning:textarea 
+                    value="" 
+                    name="messageInput" 
+                    aura:id="messageTextBox" 
+                    label="Enter messasge:" />
+            </div>
+        </div>
+        <lightning:button onclick="{!c.handlePublish}" label="Publish"/>
+    </div>
+</aura:component>

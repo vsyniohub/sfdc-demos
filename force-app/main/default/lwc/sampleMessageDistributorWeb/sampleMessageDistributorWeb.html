@@ -1,0 +1,38 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <div class="slds-text-title_caps">
+            Lightning Web Component
+        </div>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <lightning-textarea 
+                    disabled
+                    value={messageThread}
+                    label="Output:" 
+                    name="outputPannel" >
+                </lightning-textarea>
+            </div>
+        </div>
+        <div class="slds-grid">
+            <div class="slds-col">
+                <lightning-input
+                    value={name}
+                    onchange={setName}
+                    label="Name:" 
+                    name="componentName" >
+                </lightning-input>
+            </div>
+        </div>
+        <div class="slds-grid">
+            <div class="slds-col">
+                <lightning-textarea 
+                    value={message}
+                    onchange={setMessage}
+                    label="Enter message:" 
+                    name="messageInput" >
+                </lightning-textarea>
+            </div>
+        </div>
+        <lightning-button onclick={handlePublish} label="Publish"></lightning-button>
+    </div>
+</template>
