@@ -19,10 +19,25 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>height</name>
+                <value>300</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>pageName</name>
+                <value>sampleMessageDistributorPage</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLabel</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:visualforcePage</componentName>
+        </componentInstances>
         <name>region4</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>LightningMessageServiceDemo</masterLabel>
+    <masterLabel>Lightning Message Service Demo</masterLabel>
     <template>
         <name>flexipage:appHomeTemplateHeaderThreeColumns</name>
     </template>
