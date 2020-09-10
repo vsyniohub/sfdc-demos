@@ -1,0 +1,36 @@
+<template>
+    <!-- 
+        Source: https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.use_barcodescanner_example
+     -->
+    <div class="slds-box slds-theme_default">
+        <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
+            slds-border_top slds-border_bottom">
+            <p>Selected Values are: {selectedValues}</p>
+            <lightning-checkbox-group name="Barcode Types"
+                              label="Barcode Types"
+                              options={barcodeOptions}
+                              value={barcodeValue}
+                              onchange={handleBarcodeSelection}></lightning-checkbox-group>
+        </div>
+        <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
+                slds-text-align_center slds-border_top slds-border_bottom">
+            Scanned barcode value is:
+            <span class="slds-text-heading_small">{scannedBarcode}</span>
+        </div>
+        <div class="slds-align_absolute-center slds-text-align_center 
+                slds-text-color_weak">
+            Click Scan Barcode to open a barcode scanner camera view.
+        </div>
+        <div class="slds-text-align_center">
+            <lightning-button
+                variant="brand"
+                class="slds-var-m-left_x-small"
+                disabled={scanButtonDisabled}
+                icon-name="utility:cases"
+                label="Scan Barcode"
+                title="Open a camera view and look for a barcode to scan"
+                onclick={handleBeginScanClick}>
+            </lightning-button>
+        </div>
+    </div>
+</template>
