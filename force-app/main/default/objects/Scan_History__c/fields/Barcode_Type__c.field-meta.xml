@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Barcode_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Barcode Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>code_128</fullName>
+                <default>false</default>
+                <label>Code 128</label>
+            </value>
+            <value>
+                <fullName>code_39</fullName>
+                <default>false</default>
+                <label>Code 39</label>
+            </value>
+            <value>
+                <fullName>code_93</fullName>
+                <default>false</default>
+                <label>Code 93</label>
+            </value>
+            <value>
+                <fullName>Data Matrix</fullName>
+                <default>false</default>
+                <label>Data Matrix</label>
+            </value>
+            <value>
+                <fullName>ean13</fullName>
+                <default>false</default>
+                <label>EAN-13/GTIN-13</label>
+            </value>
+            <value>
+                <fullName>EAN-8/GTIN-8</fullName>
+                <default>false</default>
+                <label>EAN-8/GTIN-8</label>
+            </value>
+            <value>
+                <fullName>Interleaved 2 of 5</fullName>
+                <default>false</default>
+                <label>Interleaved 2 of 5</label>
+            </value>
+            <value>
+                <fullName>PDF417</fullName>
+                <default>false</default>
+                <label>PDF417</label>
+            </value>
+            <value>
+                <fullName>qr</fullName>
+                <default>false</default>
+                <label>QR-Code</label>
+            </value>
+            <value>
+                <fullName>UPC-E/GTIN-12</fullName>
+                <default>false</default>
+                <label>UPC-E/GTIN-12</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

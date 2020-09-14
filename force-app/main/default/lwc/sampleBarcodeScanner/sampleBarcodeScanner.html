@@ -11,11 +11,17 @@
                               options={barcodeOptions}
                               value={barcodeValue}
                               onchange={handleBarcodeSelection}></lightning-checkbox-group>
+            <lightning-button variant="base" 
+                              label="Select All" 
+                              title="Select All Codes" 
+                              icon-name="utility:tracker" 
+                              class="slds-var-m-left_x-small" onclick={selectAll}></lightning-button>
         </div>
         <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
                 slds-text-align_center slds-border_top slds-border_bottom">
             Scanned barcode value is:
             <span class="slds-text-heading_small">{scannedBarcode}</span>
+            <span class="slds-text-heading_small">{scannedBarcodeStream}</span>
         </div>
         <div class="slds-align_absolute-center slds-text-align_center 
                 slds-text-color_weak">
@@ -31,6 +37,16 @@
                 title="Open a camera view and look for a barcode to scan"
                 onclick={handleBeginScanClick}>
             </lightning-button>
+        </div>
+        <div class="slds-var-m-vertical_large slds-var-p-vertical_medium 
+                slds-text-align_center slds-border_top slds-border_bottom">
+            <div style="height: 300px;">
+                <lightning-datatable
+                        key-field="id"
+                        data={data}
+                        columns={barcodeHistoryColumns}>
+                </lightning-datatable>
+            </div>
         </div>
     </div>
 </template>
