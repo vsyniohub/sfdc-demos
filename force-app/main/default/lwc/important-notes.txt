@@ -1,0 +1,1 @@
+1. When parent on Blur exists - it will suppress child onclick
