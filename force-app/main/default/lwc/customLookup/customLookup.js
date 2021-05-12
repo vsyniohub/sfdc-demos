@@ -33,9 +33,7 @@ export default class CustomLookup extends LightningElement {
     ** functions
     ** ************* */
     connectedCallback(event) {
-        this.objectData = {
-
-        };
+        
     }
     handleItemClick(event) {
         console.log(event.currentTarget.dataset.id);
@@ -52,9 +50,9 @@ export default class CustomLookup extends LightningElement {
     changeSearch(event) {
         this.itemList = [];
         let charsEntered = event.target.value.length;
-
-        if (charsEntered > this.minCharAmount) {
-            if (this.valuesNotSet()) {
+        
+        if (this.valuesNotSet()) {
+            if (charsEntered > this.minCharAmount) {
                 getRecords({
                     fields : this.objectDataFields,
                     objectName : this.objectName,
@@ -69,23 +67,15 @@ export default class CustomLookup extends LightningElement {
                 .catch(error => {
                     this.error = error;
                 });
-            } else {
-                getRecordsByDefault({attributes : event.target.value})
-                .then(result => {
-                    this.itemList = result;
-                    console.log('Retrieved');
-                    console.log(this.itemList);
-                })
-                .catch(error => {
-                    this.error = error;
-                });
-            }
             
-            this.areRecords = true;
-        } else if (charsEntered === this.zeroCharAmount) {
-            this.removeResultList();
+                this.areRecords = true;
+            } else if (charsEntered === this.zeroCharAmount) {
+                this.removeResultList();
+            } else {
+                //no logic yet
+            }
         } else {
-
+            //make blocked component
         }
     }
     defocus(event) {
