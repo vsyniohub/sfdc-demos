@@ -7,21 +7,36 @@
                 <template if:true={selected}>
                     <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" 
                         aria-expanded="false" aria-haspopup="listbox" role="combobox">
-                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_left-right" role="none">
-                            <span class="slds-icon_container slds-icon-standard-account slds-combobox__input-entity-icon" title="Account">
-                                <lightning-icon icon-name="standard:account" alternative-text="Account" title="Account" size="small"></lightning-icon>
-                                <span class="slds-assistive-text">Account</span>
-                            </span>
-                            <input type="text" class="slds-input slds-combobox__input slds-combobox__input-value" 
-                                id="combobox-id-5" aria-controls="listbox-id-5" autocomplete="off" role="textbox" 
-                                placeholder="Select an Option…" readonly="" value={selectedCaption}/>
-                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Remove selected option">
-                                <lightning-button-icon icon-name="utility:close" alternative-text="Account" title="Account" 
-                                    variant="bare" size="small" onclick={removeSelected}>
-                                </lightning-button-icon>
-                                <span class="slds-assistive-text">Remove selected option</span>
-                            </button>
-                        </div>
+
+                        <template if:false={isError}>
+                            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_left-right" role="none">
+                                <span class="slds-icon_container slds-icon-standard-account slds-combobox__input-entity-icon" title="Account">
+                                    <lightning-icon icon-name="standard:account" alternative-text="Account" title="Account" size="small"></lightning-icon>
+                                    <span class="slds-assistive-text">Account</span>
+                                </span>
+                                <input type="text" class="slds-input slds-combobox__input slds-combobox__input-value" 
+                                    id="combobox-id-5" aria-controls="listbox-id-5" autocomplete="off" role="textbox" 
+                                    placeholder="Select an Option…" readonly="" value={selectedCaption}/>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Remove selected option">
+                                    <lightning-button-icon icon-name="utility:close" alternative-text="Account" title="Account" 
+                                        variant="bare" size="small" onclick={removeSelected}>
+                                    </lightning-button-icon>
+                                    <span class="slds-assistive-text">Remove selected option</span>
+                                </button>
+                            </div>
+                        </template>
+
+                        <template if:true={isError}>
+                            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_left-right slds-has-error" role="none">
+                                <span class="slds-icon_container slds-icon-standard-account slds-combobox__input-entity-icon" title="No data">
+                                    <lightning-icon icon-name="utility:error" alternative-text="No data" title="No data" size="xx-small" variant="error"></lightning-icon>
+                                </span>
+                                <input type="text" class="slds-input slds-combobox__input slds-combobox__input-value" 
+                                    id="combobox-id-6" aria-controls="listbox-id-6" autocomplete="off" role="textbox" 
+                                    placeholder="not defined..." readonly="" value=""/>
+                            </div>
+                        </template>
+
                     </div>
                 </template>
                 <!-- Up and Down -->
